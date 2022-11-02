@@ -20,12 +20,15 @@ html {
 body {
     font-family: "DM Sans", sans-serif;
     min-height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .main,
 h1,
 h2,
-p {
+h4 {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -67,9 +70,11 @@ button {
 }
 
 footer {
+    width: 100%;
+    text-align: center;
     position: absolute;
-    bottom: 12px;
-    margin: 0 auto;
-    /* margin-top: auto; */
-    /* margin-bottom: 0px; */
+    bottom: 2rem;
+    /* background-color: rgb(145, 145, 145); */
+    /* color: rgb(241, 243, 245); */
+    font-weight: bold;
 }
