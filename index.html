@@ -16,15 +16,15 @@
 
 <body>
     <h1>Simple Calculator</h1>
-    <p>+ keyboard shortcuts</p>
-    <p style="font-family: sans-serif;">+ keyboard sans</p>
     <div class="main">
-        <div class="display" id="display-2">4434 +</div>
-        <div class="display" id="display-1">93,999,100</div>
+        <div class="display-container">
+            <div class="display" id="display-2">0</div>
+            <div class="display" id="display-1">93,999,100</div>
+        </div>
         <div class="keys">
-            <button>AC</button>
+            <button class="all-clear">AC</button>
             <button disabled>C</button>
-            <button disabled>%</button>
+            <button class="operate" value="" disabled>%</button>
             <button class="operate" value="divide">/</button>
             <button class="number" value="7">7</button>
             <button class="number" value="8">8</button>
@@ -38,12 +38,13 @@
             <button class="number" value="2">2</button>
             <button class="number" value="3">3</button>
             <button class="operate" value="add">+</button>
+            <button disabled>+/-</button>
             <button id="zero" class="number" value="0">0</button>
             <button disabled>.</button>
             <button class="equal">=</button>
         </div>
     </div>
-    <footer><p>The Odin Project</p></footer>
+    <footer>The <div class="odin odin-click">Odin</div> Project</footer>
 </body>
 
 </html>
