@@ -15,33 +15,33 @@
 </head>
 
 <body>
-    <h1>Simple Calculator</h1>
+    <h1></h1>
     <div class="main">
         <div class="display-container">
             <div class="display" id="display-2">0</div>
             <div class="display" id="display-1">93,999,100</div>
         </div>
         <div class="keys">
-            <button class="all-clear">AC</button>
-            <button disabled>C</button>
-            <button class="operate" value="" disabled>%</button>
-            <button class="operate" value="divide">/</button>
-            <button class="number" value="7">7</button>
-            <button class="number" value="8">8</button>
-            <button class="number" value="9">9</button>
-            <button class="operate" value="multiply">*</button>
-            <button class="number" value="4">4</button>
-            <button class="number" value="5">5</button>
-            <button class="number" value="6">6</button>
-            <button class="operate" value="subtract">-</button>
-            <button class="number" value="1">1</button>
-            <button class="number" value="2">2</button>
-            <button class="number" value="3">3</button>
-            <button class="operate" value="add">+</button>
-            <button disabled>+/-</button>
-            <button id="zero" class="number" value="0">0</button>
-            <button disabled>.</button>
-            <button class="equal">=</button>
+            <button class="all-clear" data-type="all-clear">AC</button>
+            <button data-type="clear" disabled>C</button>
+            <button class="operate" value="%" data-type="percent" disabled>&percnt;</button>
+            <button class="operate" value="divide" data-type="operator">&div;</button>
+            <button class="number" value="7" data-type="number">7</button>
+            <button class="number" value="8" data-type="number">8</button>
+            <button class="number" value="9" data-type="number">9</button>
+            <button class="operate" value="multiply" data-type="operator">&times;</button>
+            <button class="number" value="4" data-type="number">4</button>
+            <button class="number" value="5" data-type="number">5</button>
+            <button class="number" value="6" data-type="number">6</button>
+            <button class="operate" value="subtract" data-type="operator">-</button>
+            <button class="number" value="1" data-type="number">1</button>
+            <button class="number" value="2" data-type="number">2</button>
+            <button class="number" value="3" data-type="number">3</button>
+            <button class="operate" value="add" data-type="operator">+</button>
+            <button data-type="operator" disabled>+/-</button>
+            <button id="zero" class="number" value="0" data-type="number">0</button>
+            <button data-type="number" disabled>.</button>
+            <button class="equal" data-type="equal">=</button>
         </div>
     </div>
     <footer>The <div class="odin odin-click">Odin</div> Project</footer>
