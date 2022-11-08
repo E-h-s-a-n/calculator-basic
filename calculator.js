@@ -77,14 +77,37 @@ buttonsGrid.addEventListener('click', e => {
 
 });
 
+numberButtons = document.querySelectorAll('.number');
+operatorButtons = document.querySelectorAll('.operate');
+numberButtonsMap = {7:0, 8:1, 9:2, 4:3, 5:4, 6:5, 1:6, 2:7, 3:8, 0:9};
+operateButtonsMap = {'%':0, '/':1, '*':2, '-':3 ,'+':4};
+
+numberButtons.forEach(e => {
+    console.log(e.value);
+});
+
+
 window.addEventListener('keydown', e => {
     if (e.repeat) return;
     console.log(e);
+    // return true
+    const numberKey = +e.key;
+    const event = 11
+    const click = new MouseEvent('click',{view: window, bubbles: true, cancelable: true})
+
+    if (numberKey || numberKey == 0){
+        const buttonIndex = numberButtonsMap[numberKey];
+        numberButtons[buttonIndex].dispatchEvent(click);
+        // console.log(cancelled);
+    } else if (1==1){
+        // const operatorIndex = 123213;
+    }
 })
 
 document.querySelector('.odin-click').addEventListener('click', e => {
     console.log(e.target.classList.toggle("odin"));
 })
+
 
 // currentDisplay.textContent = '0';
 display('0')

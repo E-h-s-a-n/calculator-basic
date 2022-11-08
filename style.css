@@ -141,6 +141,7 @@ footer {
 
 .odin {
     animation: odin-rotate 1.1s .5s infinite cubic-bezier(0.58, -0.58, 0.5, 1.38);
+    animation-iteration-count: 5;
 }
 
 @keyframes odin-rotate {
@@ -158,4 +159,9 @@ footer {
         margin: 1rem 0 2rem;
         padding-bottom: 1rem;
     }
+}
+
+[disabled] {
+    opacity: 60%;
+    cursor: default;
 }
