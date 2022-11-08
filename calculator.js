@@ -1,3 +1,5 @@
+// Woman, Life, Liberty
+
 function add(a, b) {
     return a + b;
 }
@@ -77,31 +79,33 @@ buttonsGrid.addEventListener('click', e => {
 
 });
 
-numberButtons = document.querySelectorAll('.number');
-operatorButtons = document.querySelectorAll('.operate');
-numberButtonsMap = {7:0, 8:1, 9:2, 4:3, 5:4, 6:5, 1:6, 2:7, 3:8, 0:9};
-operateButtonsMap = {'%':0, '/':1, '*':2, '-':3 ,'+':4};
-
-numberButtons.forEach(e => {
-    console.log(e.value);
-});
+// numberButtons = document.querySelectorAll('.number');
+// operatorButtons = document.querySelectorAll('.operate');
+const uiButtons = document.querySelectorAll('button');
+// for (let i = 0; i < uiButtons.length; i++) {
+//     uiButtons[i].dataset.index = ' ' + i;
+// }
+// numberButtonsMap = { 7: 0, 8: 1, 9: 2, 4: 3, 5: 4, 6: 5, 1: 6, 2: 7, 3: 8, 0: 9 };
+// operateButtonsMap = { '%': 0, '/': 1, '*': 2, '-': 3, '+': 4 };
+const buttonsMap = {
+    7: 4, 8: 5, 9: 6, 4: 8, 5: 9, 6: 10, 1: 12, 2: 13, 3: 14, 0: 17,
+    '%': 2, '/': 3, '*': 7, '-': 11, '+': 15, 'Enter': 19
+};
 
 
 window.addEventListener('keydown', e => {
     if (e.repeat) return;
+    const mouseClick = new MouseEvent('click', { view: window, bubbles: true, cancelable: true })
     console.log(e);
-    // return true
-    const numberKey = +e.key;
-    const event = 11
-    const click = new MouseEvent('click',{view: window, bubbles: true, cancelable: true})
+    // const numberKey = +e.key;
 
-    if (numberKey || numberKey == 0){
-        const buttonIndex = numberButtonsMap[numberKey];
-        numberButtons[buttonIndex].dispatchEvent(click);
-        // console.log(cancelled);
-    } else if (1==1){
-        // const operatorIndex = 123213;
+    const buttonIndex = buttonsMap[e.key];
+    console.log('button index', buttonIndex);
+
+    if (buttonIndex) {
+        console.log(uiButtons[buttonIndex].dispatchEvent(mouseClick));
     }
+
 })
 
 document.querySelector('.odin-click').addEventListener('click', e => {
@@ -110,5 +114,5 @@ document.querySelector('.odin-click').addEventListener('click', e => {
 
 
 // currentDisplay.textContent = '0';
-display('0')
+display('_');
 // resultDisplay.setAttribute('disabled');

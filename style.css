@@ -165,3 +165,8 @@ footer {
     opacity: 60%;
     cursor: default;
 }
+
+button::after{
+    content: attr(data-index);
+    font-size: small;
+}
