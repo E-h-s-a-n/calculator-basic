@@ -162,11 +162,12 @@ footer {
 }
 
 [disabled] {
-    opacity: 60%;
+    opacity: 50%;
     cursor: default;
 }
 
 button::after{
     content: attr(data-index);
     font-size: small;
+    text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.658);
 }

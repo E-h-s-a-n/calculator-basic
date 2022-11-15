@@ -22,7 +22,10 @@ const operate = (calcObj) => {
 
 function display(value = '') {
     currentDisplay.textContent = value;
+    resultDisplay.textContent = calc.operation || 'no operation'
 }
+
+
 
 let displayValue = '';
 let calc = { first: '', operation: '', second: '' }
@@ -38,17 +41,16 @@ buttonsGrid.addEventListener('click', e => {
 
     if (keyType == 'number') {
         if (calc.operation) {
-            if (!calc.second && keyValue == '0' || calc.second.length > 19) return; //error
+            if (!calc.second && keyValue == '0' || calc.second.length > 19) return;
             calc.second += keyValue;
             displayValue = calc.second;
             display(calc.second);
         } else {
-            if (!calc.first && keyValue == '0' || calc.first.length > 19) return; //error
+            if (!calc.first && keyValue == '0' || calc.first.length > 19) return;
             calc.first += keyValue;
             displayValue = calc.first;
             display(calc.first);
         }
-
 
     } else if (keyType == 'operator') {
         if (calc.second) {
@@ -59,6 +61,7 @@ buttonsGrid.addEventListener('click', e => {
             display(calc.first);
         } else if (calc.first) {
             calc.operation = keyValue;
+            display(calc.first);
         }
 
     } else if (keyType == 'equal') {
@@ -68,44 +71,48 @@ buttonsGrid.addEventListener('click', e => {
         calc.second = '';
         calc.operation = '';
         display(displayValue);
+
     } else if (keyType == 'all-clear') {
         calc.first = '';
         calc.second = '';
         calc.operation = '';
         displayValue = ''
         display();
+
+    } else if (keyType == 'back-clear') {
+        if (calc.second) {
+            calc.second = calc.second.slice(0, calc.second.length - 1);
+            display(calc.second);
+        } else {
+            // calc.operation = '';
+            calc.first = calc.first.slice(0, calc.first.length - 1);
+            display(calc.first);
+        }
     }
     console.log(calc);
 
+
 });
 
-// numberButtons = document.querySelectorAll('.number');
-// operatorButtons = document.querySelectorAll('.operate');
 const uiButtons = document.querySelectorAll('button');
 // for (let i = 0; i < uiButtons.length; i++) {
 //     uiButtons[i].dataset.index = ' ' + i;
 // }
-// numberButtonsMap = { 7: 0, 8: 1, 9: 2, 4: 3, 5: 4, 6: 5, 1: 6, 2: 7, 3: 8, 0: 9 };
-// operateButtonsMap = { '%': 0, '/': 1, '*': 2, '-': 3, '+': 4 };
+// 'Backspace': 1
 const buttonsMap = {
     7: 4, 8: 5, 9: 6, 4: 8, 5: 9, 6: 10, 1: 12, 2: 13, 3: 14, 0: 17,
-    '%': 2, '/': 3, '*': 7, '-': 11, '+': 15, 'Enter': 19
-};
-
+    '%': 2, '/': 3, '*': 7, '-': 11, '+': 15, 'Enter': 19, 'Backspace': 1
+}
 
 window.addEventListener('keydown', e => {
     if (e.repeat) return;
     const mouseClick = new MouseEvent('click', { view: window, bubbles: true, cancelable: true })
-    console.log(e);
-    // const numberKey = +e.key;
-
+    // console.log(e);
     const buttonIndex = buttonsMap[e.key];
-    console.log('button index', buttonIndex);
-
+    // console.log('button index', buttonIndex);
     if (buttonIndex) {
         console.log(uiButtons[buttonIndex].dispatchEvent(mouseClick));
     }
-
 })
 
 document.querySelector('.odin-click').addEventListener('click', e => {
